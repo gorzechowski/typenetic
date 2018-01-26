@@ -19,7 +19,7 @@
     "name": "Gracjan Orzechowski",
     "email": "kampo2@o2.pl"
   },
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "typescript",
     "genetic",
