@@ -1,5 +1,7 @@
 # Typenetic - Genetic algorithm for Typescript
 
+[![Build Status](https://travis-ci.org/gorzechowski/typenetic.svg?branch=master)](https://travis-ci.org/gorzechowski/typenetic)
+
 # Table of Contents
 
 * [Installation](#installation)
