@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declaration": true,
+    "rootDir": "./"
+  },
+  "exclude": [
+    "dist",
+    "test",
+    "node_modules",
+    "typings/browser",
+    "typings/browser.d.ts"
+  ],
+  "compileOnSave": true
+}
+

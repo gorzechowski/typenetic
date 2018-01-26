@@ -1,0 +1,1 @@
+export type Crossover = (parentA: any, parentB: any) => any;

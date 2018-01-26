@@ -1,0 +1,10 @@
+**/*.ts
+!**/*.d.ts
+
+tsconfig.json
+typings.json
+tslint.json
+
+.npmignore
+
+*.tgz
