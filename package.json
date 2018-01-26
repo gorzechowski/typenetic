@@ -1,7 +1,8 @@
 {
   "name": "typenetic",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Genetic algorithm library for Typescript",
+  "homepage": "https://github.com/gorzechowski/typenetic",
   "main": "index.js",
   "scripts": {
     "build": "tsc --outDir ./dist",
@@ -11,11 +12,24 @@
     "test:coverage": "NODE_ENV=test istanbul cover _mocha -- -t 5000 -u exports 'test/unit/**/*Test.js' --require ts-node/register --require 'test/unit/bootstrap.js'",
     "posttest:coverage": "cat coverage/coverage.json | remap-istanbul -o coverage/html-remapped -t html",
     "lint": "tslint --project tsconfig.json -e config",
-    "pack": "cp package.json .npmignore dist/; cd dist && npm pack",
+    "pack": "cp package.json .npmignore README.md dist/; cd dist && npm pack && cd ..",
     "publish": "cd dist && npm publish"
   },
-  "author": "Gracjan Orzechowski",
+  "author": {
+    "name": "Gracjan Orzechowski",
+    "email": "kampo2@o2.pl"
+  },
   "license": "ISC",
+  "keywords": [
+    "typescript",
+    "genetic",
+    "evolutionary",
+    "algorithm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gorzechowski/typenetic.git"
+  },
   "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.0.5",

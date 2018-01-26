@@ -1,4 +1,7 @@
 # Changelog
 
+## 0.1.1 (26.01.2018)
+* fix: package.json
+
 ## 0.1.0 (26.01.2018)
 * Initial release
