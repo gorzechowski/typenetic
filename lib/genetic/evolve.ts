@@ -8,22 +8,22 @@ export const evolve = (population: Array<any>): Array<any> => {
     const crossover = StorageInstance.get<Crossover>('Crossover');
     const mutation = StorageInstance.get<Mutation>('Mutation');
 
-    let evolved = population.slice();
+    let evolved = [];
 
-    let elities = selection(evolved);
+    let elities = selection(population);
 
-    for (let i = elities.length; i < evolved.length; i++) {
+    for (let i = elities.length; i < population.length; i++) {
         let offspring: any;
 
         if (i === elities.length) {
             offspring = crossover(elities[0], elities[1]);
         } else {
-            offspring = evolved[random(0, evolved.length - 1)];
+            offspring = population[random(0, population.length - 1)];
         }
 
         offspring = mutation(offspring);
 
-        evolved[i] = offspring;
+        evolved.push(offspring);
     }
 
     return evolved;

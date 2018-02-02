@@ -10,8 +10,8 @@ export const Selection = (size?: number) => {
     return (target: any, key: string, descriptor: any) => {
         const originalMethod = descriptor.value;
 
-        descriptor.value = (...args) => {
-            const selection = originalMethod(...args);
+        descriptor.value = function(...args: Array<any>) {
+            const selection = originalMethod.apply(this, args);
 
             if (size) {
                 return selection.slice(0, size);

@@ -27,18 +27,17 @@ describe('Mutation genetic operator', () => {
         expect(storageSetStub.callCount).to.be.equal(1);
     });
 
-    it('Should mutate offspring if 100% rate provided', () => {
-        const input = {bias: 0};
-
+    it('Should keep the context', () => {
         class GeneticOperators {
-            @Mutation(100)
-            mutation(offspring: any) {
-                return {...offspring, bias: 1};
+            @Mutation()
+            mutation() {
+                return this;
             }
         }
 
-        const output = new GeneticOperators().mutation(input);
+        const instance = new GeneticOperators();
+        const context = instance.mutation();
 
-        expect(output.bias).to.be.equal(1);
+        expect(context).to.equal(instance);
     });
 });

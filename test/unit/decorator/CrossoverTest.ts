@@ -26,4 +26,18 @@ describe('Crossover genetic operator', () => {
 
         expect(storageSetStub.callCount).to.be.equal(1);
     });
+
+    it('Should keep the context', () => {
+        class GeneticOperators {
+            @Crossover()
+            crossover() {
+                return this;
+            }
+        }
+
+        const instance = new GeneticOperators();
+        const context = instance.crossover();
+
+        expect(context).to.equal(instance);
+    });
 });

@@ -1,6 +1,6 @@
 {
   "name": "typenetic",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Genetic algorithm library for Typescript",
   "homepage": "https://github.com/gorzechowski/typenetic",
   "main": "index.js",
@@ -24,7 +24,8 @@
     "typescript",
     "genetic",
     "evolutionary",
-    "algorithm"
+    "algorithm",
+    "robotic"
   ],
   "repository": {
     "type": "git",

@@ -60,4 +60,34 @@ describe('Selection genetic operator', () => {
     it('Should throw error if elities size is lesser than 2', () => {
         expect(() => Selection(1)).to.throw(Error);
     });
+
+    it('Should keep the context', () => {
+        class GeneticOperators {
+            @Selection()
+            selection() {
+                return this;
+            }
+        }
+
+        const instance = new GeneticOperators();
+        const context = instance.selection();
+
+        expect(context).to.equal(instance);
+    });
+
+    it('Should keep the context with elities size specified', () => {
+        class GeneticOperators {
+            @Selection(5)
+            selection() {
+                this.foo();
+                return [];
+            }
+
+            foo() {}
+        }
+
+        const instance = new GeneticOperators();
+
+        expect(() => instance.selection).not.to.throw(Error);
+    });
 });
