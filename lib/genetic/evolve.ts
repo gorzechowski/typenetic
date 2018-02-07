@@ -12,6 +12,8 @@ export const evolve = (population: Array<any>): Array<any> => {
 
     let elities = selection(population);
 
+    evolved.push(...elities);
+
     for (let i = elities.length; i < population.length; i++) {
         let offspring: any;
 

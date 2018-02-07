@@ -54,8 +54,7 @@
             return offspring;
         }
 
-        // mutate with 25% mutation rate
-        @Mutation(25)
+        @Mutation()
         mutation(offspring: any): any {
             // perform mutation
 
@@ -82,8 +81,8 @@
 | Signature                   | Description                            |
 |-----------------------------|----------------------------------------|
 | `@Selection(size?: number)` | Selection operator, which task is to select elities from population. If `size` provided, then decorated function result will be sliced: `result.slice(0, size)` (useful in eg. tournament selection). |
-| `@Crossover()`              | Crossover operator is responsible for crossing two units |
-| `@Mutation(rate?: number)`  | Mutation operator randomly modify genes in the unit. Default `rate` is `100%` |
+| `@Crossover()`              | Crossover operator is responsible for crossing two units. |
+| `@Mutation()`  | Mutation operator randomly modify genes in the unit. |
 
 # Genetic operators examples
 
@@ -150,8 +149,7 @@ import {Mutation} from "typenetic";
 
 export class GeneticOperators {
 
-    // set mutation rate at 20%
-    @Mutation(20)
+    @Mutation()
     mutation(offspring: Array<any>): Array<any> {
         for (let i = 0; i < offspring.neurons.length; i++) {
             offspring.neurons[i].bias = this.mutate(offspring.neurons[i].bias);
@@ -165,9 +163,14 @@ export class GeneticOperators {
     }
 
     private mutate(gene) {
-        const mutateFactor = 1 + ((Math.random() - 0.5) * 3 + (Math.random() - 0.5));
+        // mutation rate at 0.5 (50%)
+        if (Math.random() < 0.5) {
+            const mutateFactor = 1 + ((Math.random() - 0.5) * 3 + (Math.random() - 0.5));
 
-        return gene *= mutateFactor;
+            return gene *= mutateFactor;
+        }
+
+        return gene;
     }
 
 }
